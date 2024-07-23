@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Réservé</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/access.css') }}">
+</head>
+<body>
+    <div class="access-container">
+        <h1>Veuillez entrer le code d'accès :</h1>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            <input type="text" name="access_code" required>
+            <button type="submit">Accéder</button>
+        </form>
+    </div>
+</body>
+</html>

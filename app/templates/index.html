@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">MonSite</a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('main.access') }}">Accès</a></li>
+                <li><a href="{{ url_for('main.calendar') }}">Calendrier</a></li>
+                <li><a href="{{ url_for('main.chatbot') }}">Chatbot</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="container">
+            <h1>Bienvenue sur notre site</h1>
+            <p>Votre solution ultime pour la gestion des réservations et bien plus encore.</p>
+            <a href="{{ url_for('main.access') }}" class="btn">Commencer</a>
+        </div>
+    </header>
+    
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <i class="fas fa-calendar-alt"></i>
+                <h2>Gestion des réservations</h2>
+                <p>Gérez vos réservations de manière efficace et simple.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-comments"></i>
+                <h2>Chatbot intelligent</h2>
+                <p>Utilisez notre chatbot pour obtenir des réponses rapides et précises.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-lock"></i>
+                <h2>Accès sécurisé</h2>
+                <p>Protégez vos informations avec notre système d'accès sécurisé.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rooms">
+        <div class="container">
+            <h2>Chambres et étages</h2>
+            {% for floor in floors %}
+                <h3>Étage {{ floor.number }}</h3>
+                <ul>
+                    {% for room in floor.rooms %}
+                        <li>{{ room.name }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <p>Contactez-nous : contact@monsite.com</p>
+            <p>&copy; 2024 MonSite. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

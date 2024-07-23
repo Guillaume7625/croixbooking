@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+</head>
+<body>
+    <div class="calendar-container">
+        <h1>Calendrier des Réservations</h1>
+        <div class="calendar">
+            {% for floor in floors %}
+                <h2>Étage {{ floor.number }}</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chambre</th>
+                            <th>Lundi</th>
+                            <th>Mardi</th>
+                            <th>Mercredi</th>
+                            <th>Jeudi</th>
+                            <th>Vendredi</th>
+                            <th>Samedi</th>
+                            <th>Dimanche</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for room in floor.rooms %}
+                            <tr>
+                                <td>{{ room.name }}</td>
+                                {% for day in range(7) %}
+                                    <td>
+                                        {% for booking in bookings %}
+                                            {% if booking.room_name == room.name and booking.date == (current_date + timedelta(days=day)).strftime('%Y-%m-%d') %}
+                                                {{ booking.initials }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
