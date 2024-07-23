@@ -1,0 +1,51 @@
+# Environnements virtuels
+venv/
+new_env/
+.env
+
+# Fichiers Python compilés
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Fichiers de base de données SQLite
+*.sqlite3
+*.db
+
+# Fichiers de logs
+*.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers d'IDE et d'éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Fichiers de configuration locaux
+instance/
+
+# Fichiers de distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Fichiers de couverture de tests
+.coverage
+htmlcov/
+
+# Fichiers de documentation générés
+docs/_build/

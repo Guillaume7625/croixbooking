@@ -1,8 +1,9 @@
 import os
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'supersecretkey'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///croixmesnil.db'
+    SECRET_KEY = 'votre-clé-secrète'  # Remplacez par une vraie clé secrète
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SESSION_TYPE = 'filesystem'
-    OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+    OPENAI_API_KEY = 'votre-clé-api-openai'  # Remplacez par votre vraie clé API OpenAI

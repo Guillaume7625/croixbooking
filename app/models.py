@@ -16,4 +16,3 @@ class Booking(db.Model):
     floor = db.Column(db.Integer, nullable=False)
     date = db.Column(db.String(10), nullable=False)
     initials = db.Column(db.String(10), nullable=False)
-

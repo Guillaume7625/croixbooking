@@ -13,6 +13,7 @@ def create_app():
     migrate.init_app(app, db)
 
     with app.app_context():
-        from . import routes  # Import routes after app context is available
+        from . import routes
+        app.register_blueprint(routes.bp)
 
     return app
